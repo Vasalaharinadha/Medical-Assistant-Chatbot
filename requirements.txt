@@ -2,4 +2,4 @@ streamlit
 langchain
 langchain-huggingface
 langchain-community
-faiss-cpu  # Or faiss-gpu if you're using GPU
+faiss-gpu  # Or faiss-cpu if you're using GPU
