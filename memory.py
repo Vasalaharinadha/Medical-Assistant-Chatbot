@@ -24,13 +24,13 @@ print("Length of PDF pages: ", len(documents))
 
 # Step 2: Create Chunks
 def create_chunks(extracted_data):
-    text_splitter=RecursiveCharacterTextSplitter(chunk_size=500,
-                                                 chunk_overlap=50)
+    text_splitter=RecursiveCharacterTextSplitter(chunk_size=450,
+                                                 chunk_overlap=100)
     text_chunks=text_splitter.split_documents(extracted_data)
     return text_chunks
 
 text_chunks=create_chunks(extracted_data=documents)
-#print("Length of Text Chunks: ", len(text_chunks))
+print("Length of Text Chunks: ", len(text_chunks))
 
 # Step 3: Create Vector Embeddings 
 
@@ -44,4 +44,4 @@ embedding_model=get_embedding_model()
 DB_FAISS_PATH="vectorstore/db_faiss"
 db=FAISS.from_documents(text_chunks, embedding_model)
 db.save_local(DB_FAISS_PATH)
-print("FAISS index saved.")
+print("data stored ")
